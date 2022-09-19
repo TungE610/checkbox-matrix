@@ -1,0 +1,26 @@
+.cellChecked {
+	width: 80px;
+	height : 40px;	
+	background-color: rgba(157, 182, 108, 0.445);
+	transition: background-color 200ms linear;
+	outline: 1px solid rgb(185, 185, 185);
+	position : relative;
+}
+.cellUnChecked {
+	width: 80px;
+	height : 40px;	
+	background-color: rgb(255, 255, 255);
+	transition: background-color 200ms linear;
+	outline: 1px solid rgb(185, 185, 185);
+	position : relative;
+}
+.checkboxContainer {
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+	width:100%;
+}
+.checkbox {
+	border: 1px solid #000;
+}

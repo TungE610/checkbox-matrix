@@ -1,0 +1,12 @@
+.matrix {
+	margin:auto;
+	margin-top: 400px;
+}
+.firstRow,
+.nextRow {
+	display: flex;
+}
+.blankCell {
+	width: 80px;
+	height : 30px;
+}
