@@ -1,7 +1,7 @@
 import { React, useState } from 'react' 
 import styles from './CheckboxMatrix.module.css'
-import CheckboxMatrixHeader from '../header/CheckboxMatrixHeader'
-import CheckboxMatrixCell from '../cell/CheckboxMatrixCell'
+import CheckboxMatrixHeader from '../checkbox-matrix-header/CheckboxMatrixHeader'
+import CheckboxMatrixCell from '../checkbox-matrix-cell/CheckboxMatrixCell'
 
 const Matrix = (props) => {
 	const [ focusedIndex, setFocusedIndex ] = useState({})

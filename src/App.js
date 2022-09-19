@@ -1,5 +1,5 @@
 import './App.css';
-import Matrix from './components/checkbox-matrix/matrix/CheckboxMatrix';
+import Matrix from './components/checkbox-matrix/checkbox-matrix/CheckboxMatrix';
 
 function App() {
 	
