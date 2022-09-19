@@ -6,6 +6,7 @@ import CheckboxMatrixCell from '../checkbox-matrix-cell/CheckboxMatrixCell'
 const Matrix = (props) => {
 	const [ focusedIndex, setFocusedIndex ] = useState({})
 	const checkboxMatrixData = props.data
+	const numCol = checkboxMatrixData[0].length
 	const numRow = checkboxMatrixData[1].length
 
   const getFocusedIndexHandler = (rowIndex, columnIndex) => {
@@ -31,9 +32,12 @@ const Matrix = (props) => {
 								{[...Array(numRow)].map(
 										(e, column) => 
 											<CheckboxMatrixCell key={column} 
-														index={{rowIndex: row, columnIndex: column}}
+														rowIndex = {row}
+														columnIndex = {column}
 														getFocusedIndex={getFocusedIndexHandler} 
 														focusedIndex={focusedIndex}
+														numCol = {numCol}
+														numRow = {numRow}
 											/>
 								)}
 							</div>
