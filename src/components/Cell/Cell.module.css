@@ -1,18 +1,18 @@
-.cellChecked {
+.cellChecked,
+.cellUnChecked{
 	width: 90px;
 	height : 45px;	
-	background-color: rgba(66, 226, 247, 0.486);
+	background-color: rgba(129, 207, 55, 0.26);
 	transition: background-color 200ms linear;
 	outline: 1px solid rgb(185, 185, 185);
 	position : relative;
 }
+.cellChecked {
+	background-color: rgba(129, 207, 55, 0.26);
+	z-index: 3;
+}
 .cellUnChecked {
-	width: 90px;
-	height : 45px;	
 	background-color: rgb(255, 255, 255);
-	transition: background-color 200ms linear;
-	outline: 1px solid rgb(185, 185, 185);
-	position : relative;
 }
 .checkboxContainer {
 	margin: 0;
@@ -42,5 +42,5 @@ input[type=checkbox]
   outline: #005a9c;
   outline-style: dotted;
   outline-width: 3px;
-	z-index: 2;
+	z-index: 3;
 }
