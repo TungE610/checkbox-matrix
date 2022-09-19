@@ -1,14 +1,14 @@
 .cellChecked {
-	width: 80px;
-	height : 40px;	
-	background-color: rgba(157, 182, 108, 0.445);
+	width: 90px;
+	height : 45px;	
+	background-color: rgba(66, 226, 247, 0.486);
 	transition: background-color 200ms linear;
 	outline: 1px solid rgb(185, 185, 185);
 	position : relative;
 }
 .cellUnChecked {
-	width: 80px;
-	height : 40px;	
+	width: 90px;
+	height : 45px;	
 	background-color: rgb(255, 255, 255);
 	transition: background-color 200ms linear;
 	outline: 1px solid rgb(185, 185, 185);
@@ -21,6 +21,26 @@
   transform: translateY(-50%);
 	width:100%;
 }
-.checkbox {
-	border: 1px solid #000;
+input[type=checkbox]
+{
+  transform: scale(1.4);
+  padding: 5px;
+}
+
+.checkboxtext
+{
+  font-size: 110%;
+  display: inline;
+}
+
+[role="checkbox"] {
+  cursor: pointer;
+}
+
+[role="gridcell"]:focus,
+[role="grid"] [tabindex="0"]:focus {
+  outline: #005a9c;
+  outline-style: dotted;
+  outline-width: 3px;
+	z-index: 2;
 }

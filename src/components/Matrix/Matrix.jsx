@@ -1,42 +1,34 @@
-import { React, useState, useEffect } from 'react' 
+import { React, useState } from 'react' 
 import styles from './Matrix.module.css'
-import axios from 'axios'
 import Label from '../Label/Label'
 import Cell from '../Cell/Cell'
-import _ from 'lodash'
 
-const Matrix = () => {
-	const [ matrixData, setMatrixData ] = useState([{list: []}, {list: []}])
-	const [listOneLength, setListOneLength] = useState(0)
-	const renderMatrix = async () => {
-		await axios('http://localhost:5000/api/getAll').then(response => {
-			setMatrixData(response.data)
-			setListOneLength(response.data[0].list.length)
-		})
+const Matrix = (props) => {
+	const [ focusIndex, setFocusIndex ] = useState({})
+	const listOneLength = props.data[1].length
+
+  const getFocusIndexHander = (row, column) => {
+		setFocusIndex({row, column,})
 	}
-	useEffect(() => {
-		renderMatrix()
-	}, [])
+
 	return (
-		<div className={styles.matrix}>
+		<div role="grid" aria-labelledby="gridLabel" className={styles.matrix} >
 			<div className={styles.firstRow}>
 				<div className={styles.blankCell}></div>
-				{ matrixData[0].list.map(
-					label => {
-						return <Label labelName={label}/>
+				{ props.data[0].map(
+					(label, index) => {
+						return <Label key={index} labelName={label}/>
 					})
 				}
 			</div>
 			{
-				matrixData[1].list.map(
-					label => {
+				props.data[1].map(
+					(label, row) => {
 						return (
-							<div className={styles.nextRow}>
+							<div key={row} className={styles.nextRow}>
 								<Label labelName={label}/>
 								{
-								_.times(listOneLength, () => 
-  								<Cell />
-									) 
+									[...Array(listOneLength)].map((e, column) => <Cell key={column} column={column} row={row} getFocusIndex={getFocusIndexHander} focusIndex={focusIndex}/>)
 								}
 							</div>
 						)
