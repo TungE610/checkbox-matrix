@@ -3,14 +3,13 @@ import styles from './Cell.module.css'
 import { Checkbox } from 'antd';
 
 const Cell = (props) => {
-
 	const [checked, setChecked] = useState(false)
 	const cellRef = useRef(null)
 
 	const onChangeHandler = () => {
     setChecked(prev => !prev)
 	}
-	
+
   const handleFocusChange = (event) => {
 		cellRef.current.setAttribute('tabIndex', '-1')
 		if(event.code === "ArrowRight") {

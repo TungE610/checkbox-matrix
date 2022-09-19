@@ -8,12 +8,12 @@ const Matrix = (props) => {
 	const listOneLength = props.data[1].length
 
   const getFocusIndexHander = (row, column) => {
-		setFocusIndex({row, column,})
+		setFocusIndex({row, column})
 	}
 
 	return (
 		<div role="grid" aria-labelledby="gridLabel" className={styles.matrix} >
-			<div className={styles.firstRow}>
+			<div class={styles.matrixRow}>
 				<div className={styles.blankCell}></div>
 				{ props.data[0].map(
 					(label, index) => {
@@ -25,11 +25,17 @@ const Matrix = (props) => {
 				props.data[1].map(
 					(label, row) => {
 						return (
-							<div key={row} className={styles.nextRow}>
+							<div key={row} class={styles.matrixRow}>
 								<Label labelName={label}/>
-								{
-									[...Array(listOneLength)].map((e, column) => <Cell key={column} column={column} row={row} getFocusIndex={getFocusIndexHander} focusIndex={focusIndex}/>)
-								}
+								{[...Array(listOneLength)].map(
+										(e, column) => 
+											<Cell key={column} 
+														column={column} 
+														row={row} 
+														getFocusIndex={getFocusIndexHander} 
+														focusIndex={focusIndex}
+											/>
+										)}
 							</div>
 						)
 					}
