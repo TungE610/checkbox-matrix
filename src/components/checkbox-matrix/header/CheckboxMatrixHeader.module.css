@@ -1,11 +1,11 @@
-.label {
+.matrixHeader {
 	width: 90px;
 	height : 45px;	
 	background-color: rgb(238, 238, 238);
 	outline: 1px solid rgb(185, 185, 185);
 	position: relative;
 }
-.labelText {
+.headerText {
 	margin: 0;
 	position: absolute;
   top: 50%;
