@@ -1,7 +1,7 @@
 import { React, useState } from 'react' 
 import styles from './Matrix.module.css'
-import Label from '../Label/Label'
-import Cell from '../Cell/Cell'
+import Label from '../label/Label'
+import Cell from '../cell/Cell'
 
 const Matrix = (props) => {
 	const [ focusIndex, setFocusIndex ] = useState({})
