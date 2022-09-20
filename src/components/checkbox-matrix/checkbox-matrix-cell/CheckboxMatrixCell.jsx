@@ -25,21 +25,27 @@ const CheckboxMatrixCell = (props) => {
 													& (event.code !== "ArrowLeft" || focusedIndex.columnIndex > 0)
 													& (event.code !== "ArrowDown" || focusedIndex.rowIndex < numRow -1)
 												 )
-		if(canMoveFocus){
+		if(canMoveFocus && event.code !== "Enter"){
 			matrixCellRef.current.setAttribute('tabIndex', '-1')
 		} 
-		if(event.code === "ArrowRight") {
-			props.getFocusedIndex(props.rowIndex, props.columnIndex + 1)
-		} else if (event.code === "ArrowUp") {
-			props.getFocusedIndex(props.rowIndex - 1, props.columnIndex)
-		} else if (event.code === "ArrowLeft") {
-			props.getFocusedIndex(props.rowIndex, props.columnIndex - 1)
-		} else if (event.code === "ArrowDown") {
-			props.getFocusedIndex(props.rowIndex + 1, props.columnIndex)
-		}
-
-		if(event.code === 'Enter') {
-			setChecked(prevState => !prevState)
+		switch(event.code) {
+			case "ArrowRight":
+				props.getFocusedIndex(props.rowIndex, props.columnIndex + 1)
+				break
+			case "ArrowUp":
+				props.getFocusedIndex(props.rowIndex - 1, props.columnIndex)
+				break
+			case "ArrowLeft":
+				props.getFocusedIndex(props.rowIndex, props.columnIndex - 1)
+				break
+			case "ArrowDown":
+				props.getFocusedIndex(props.rowIndex + 1, props.columnIndex)
+				break
+			case "Enter":
+				setChecked(prevState => !prevState)
+				break
+			default:
+				break
 		}
 	}
 	if(focusedIndex.rowIndex === props.rowIndex && focusedIndex.columnIndex === props.columnIndex) {
