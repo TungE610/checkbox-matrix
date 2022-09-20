@@ -1,4 +1,4 @@
-import { React, useState, useRef } from 'react' 
+import { React, useState, useRef, useEffect } from 'react' 
 import styles from './CheckboxMatrixCell.module.css'
 import { Checkbox } from 'antd';
 
@@ -8,15 +8,23 @@ const CheckboxMatrixCell = (props) => {
   const focusedIndex = props.focusedIndex
 	const numRow = props.numRow
 	const numCol = props.numCol
-  console.log("row index", props.rowIndex)
 
 	const toggleCheckbox = () => {
 		setChecked(prevState => !prevState)
 	}
-	const DecreaseTabIndex = (e) => {
+
+	useEffect(() => {
+		if( checked ) {
+			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'add')
+		} else {
+			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'remove')
+		}
+	},[checked]) 
+
+	const decreaseTabIndex = (e) => {
 		matrixCellRef.current.setAttribute('tabIndex', '-1')
 	}
-  const IncreaseTabIndex = () => {
+  const increaseTabIndex = () => {
 		matrixCellRef.current.setAttribute('tabIndex', '0')
 	}
   const changeFocusedCell = (event) => {
@@ -56,8 +64,8 @@ const CheckboxMatrixCell = (props) => {
 	return (
 		<div role="gridcell" tabIndex="-1" ref={matrixCellRef} className={checked ? styles.cellChecked : styles.cellUnChecked} 
 				 onKeyDown={changeFocusedCell}
-				 onBlur={DecreaseTabIndex} 
-				 onFocus={IncreaseTabIndex}
+				 onBlur={decreaseTabIndex} 
+				 onFocus={increaseTabIndex}
 		> 
 				<div className={styles.checkboxContainer}>
 					<Checkbox role="checkbox" aria-checked={checked ? "true" : "false"} class={styles.checkbox}

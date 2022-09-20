@@ -8,11 +8,22 @@ const Matrix = (props) => {
 	const checkboxMatrixData = props.data
 	const numCol = checkboxMatrixData[0].length
 	const numRow = checkboxMatrixData[1].length
+	const [checkedCells, setCheckedCells] = useState([])
 
   const getFocusedIndexHandler = (rowIndex, columnIndex) => {
 		setFocusedIndex({ rowIndex, columnIndex })
 	}
-
+	const changeCheckedCellsHandler = (row, column, type) => {
+		const cellContent = [checkboxMatrixData[1][row],checkboxMatrixData[0][column]]
+		if( type === 'add') {
+			setCheckedCells(prevState => [...prevState, cellContent])
+		} else {
+			const index = checkedCells.indexOf(cellContent);
+			if (index > -1) { 
+				setCheckedCells(prevState => prevState.splice(index, 1))
+			}
+		}
+	}
 	return (
 		<div role="grid" aria-labelledby="gridLabel" className={styles.matrix} >
 			<div className={styles.matrixRow}>
@@ -38,6 +49,7 @@ const Matrix = (props) => {
 														focusedIndex={focusedIndex}
 														numCol = {numCol}
 														numRow = {numRow}
+														changeCheckedCells={changeCheckedCellsHandler}
 											/>
 								)}
 							</div>
