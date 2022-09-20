@@ -3,7 +3,7 @@ import styles from './CheckboxMatrix.module.css'
 import CheckboxMatrixHeader from '../checkbox-matrix-header/CheckboxMatrixHeader'
 import CheckboxMatrixCell from '../checkbox-matrix-cell/CheckboxMatrixCell'
 
-const Matrix = (props) => {
+const CheckboxMatrix = (props) => {
 	const [ focusedIndex, setFocusedIndex ] = useState({})
 	const [ checkedCells, setCheckedCells ] = useState(props.checkedCells)
 	const checkboxMatrixData = props.data
@@ -70,4 +70,4 @@ const Matrix = (props) => {
 	)
 }
 
-export default Matrix
+export default CheckboxMatrix
