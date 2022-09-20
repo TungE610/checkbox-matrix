@@ -1,4 +1,4 @@
-import { React, useState, useRef, useEffect } from 'react' 
+import { React, useState, useRef } from 'react' 
 import styles from './CheckboxMatrixCell.module.css'
 import { Checkbox } from 'antd';
 
@@ -11,15 +11,8 @@ const CheckboxMatrixCell = (props) => {
 
 	const toggleCheckbox = () => {
 		setChecked(prevState => !prevState)
+		changeCheckedCells()
 	}
-
-	useEffect(() => {
-		if( checked ) {
-			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'add')
-		} else {
-			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'remove')
-		}
-	},[checked]) 
 
 	const decreaseTabIndex = (e) => {
 		matrixCellRef.current.setAttribute('tabIndex', '-1')
@@ -50,12 +43,22 @@ const CheckboxMatrixCell = (props) => {
 				props.getFocusedIndex(props.rowIndex + 1, props.columnIndex)
 				break
 			case "Enter":
-				setChecked(prevState => !prevState)
+				toggleCheckbox()
 				break
 			default:
 				break
 		}
 	}
+
+	const changeCheckedCells = () => {
+		if( !checked ) {
+			console.log("Run")
+			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'add')
+		} else {
+			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'remove')
+		}
+	}
+
 	if(focusedIndex.rowIndex === props.rowIndex && focusedIndex.columnIndex === props.columnIndex) {
 		matrixCellRef.current.focus()
 		matrixCellRef.current.setAttribute('tabIndex', '0')
