@@ -1,6 +1,9 @@
 # CheckBox-Matrix Component
 
-This is a simple checkbox-matrix component that allows users to select 2-item combinations of any items from the two lists. Each checkbox cell can be focused, we can also move focus to another cell and check this checkbox cell. 
+This is a simple checkbox-matrix component that allows users to select 2-item combinations of any items from the two lists. 
+Each checkbox cell can be focused, we can also move focus to another cell and check this checkbox cell. 
+
+
 
 
 In the project directory, you can run:
