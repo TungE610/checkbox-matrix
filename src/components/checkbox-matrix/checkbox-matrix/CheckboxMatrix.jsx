@@ -5,14 +5,15 @@ import CheckboxMatrixCell from '../checkbox-matrix-cell/CheckboxMatrixCell'
 
 const Matrix = (props) => {
 	const [ focusedIndex, setFocusedIndex ] = useState({})
+	const [checkedCells, setCheckedCells] = useState(props.checkedCells)
 	const checkboxMatrixData = props.data
 	const numCol = checkboxMatrixData[0].length
 	const numRow = checkboxMatrixData[1].length
-	const [checkedCells, setCheckedCells] = useState(props.checkedCells)
 
   const getFocusedIndexHandler = (rowIndex, columnIndex) => {
 		setFocusedIndex({ rowIndex, columnIndex })
 	}
+
   const indexOfArray = (val, array) => {
 		var hash = {};
 		for (var i = 0; i < array.length; i++) {
@@ -21,7 +22,6 @@ const Matrix = (props) => {
 		return (hash.hasOwnProperty(val)) ? hash[val] : -1;
 	};
 
-	console.log(checkedCells)
 	const changeCheckedCellsHandler = (row, column, type) => {
 		const cellIndex = [row,column]
 		if( type === 'add') {
@@ -49,7 +49,7 @@ const Matrix = (props) => {
 						return (
 							<div key={row} className={styles.matrixRow}>
 								<CheckboxMatrixHeader headerContent={label}/>
-								{[...Array(numRow)].map(
+								{[...Array(numCol)].map(
 										(e, column) => 
 											<CheckboxMatrixCell key={column} 
 														rowIndex = {row}
