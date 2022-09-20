@@ -8,17 +8,26 @@ const Matrix = (props) => {
 	const checkboxMatrixData = props.data
 	const numCol = checkboxMatrixData[0].length
 	const numRow = checkboxMatrixData[1].length
-	const [checkedCells, setCheckedCells] = useState([])
+	const [checkedCells, setCheckedCells] = useState(props.checkedCells)
 
   const getFocusedIndexHandler = (rowIndex, columnIndex) => {
 		setFocusedIndex({ rowIndex, columnIndex })
 	}
+  const indexOfArray = (val, array) => {
+		var hash = {};
+		for (var i = 0; i < array.length; i++) {
+			hash[array[i]] = i;
+		}
+		return (hash.hasOwnProperty(val)) ? hash[val] : -1;
+	};
+
+	console.log(checkedCells)
 	const changeCheckedCellsHandler = (row, column, type) => {
-		const cellContent = [checkboxMatrixData[1][row],checkboxMatrixData[0][column]]
+		const cellIndex = [row,column]
 		if( type === 'add') {
-			setCheckedCells(prevState => [...prevState, cellContent])
+			setCheckedCells(prevState => [...prevState, cellIndex])
 		} else {
-			const index = checkedCells.indexOf(cellContent);
+			const index = checkedCells.indexOf(cellIndex);
 			if (index > -1) { 
 				setCheckedCells(prevState => prevState.splice(index, 1))
 			}
@@ -50,6 +59,7 @@ const Matrix = (props) => {
 														numCol = {numCol}
 														numRow = {numRow}
 														changeCheckedCells={changeCheckedCellsHandler}
+														checked = {indexOfArray([row, column], checkedCells) >= 0}
 											/>
 								)}
 							</div>

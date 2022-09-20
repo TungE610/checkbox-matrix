@@ -5,10 +5,10 @@ function App() {
 	
 	const twoListData = [['Dog', 'Cat', 'Mouse', 'Elephant', 'Duck', 'Lion', 'Hourse'], 
 											 ['White', 'Red', 'Black', 'Blue', 'Green', 'Yellow', 'Brown']]
-
+  const checkedCells = [[1,1]]
   return (
     <div className="App">
-      <Matrix data={twoListData} />
+      <Matrix data={twoListData} checkedCells={checkedCells} />
     </div>
   );
 }

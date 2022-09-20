@@ -3,7 +3,7 @@ import styles from './CheckboxMatrixCell.module.css'
 import { Checkbox } from 'antd';
 
 const CheckboxMatrixCell = (props) => {
-	const [ checked, setChecked ] = useState(false)
+	const [ checked, setChecked ] = useState(props.checked)
 	const matrixCellRef = useRef(null)
   const focusedIndex = props.focusedIndex
 	const numRow = props.numRow
