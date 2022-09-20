@@ -52,7 +52,6 @@ const CheckboxMatrixCell = (props) => {
 
 	const changeCheckedCells = () => {
 		if( !checked ) {
-			console.log("Run")
 			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'add')
 		} else {
 			props.changeCheckedCells(props.rowIndex, props.columnIndex, 'remove')
