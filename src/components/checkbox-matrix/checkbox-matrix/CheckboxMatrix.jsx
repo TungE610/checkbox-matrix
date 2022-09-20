@@ -13,7 +13,7 @@ const CheckboxMatrix = (props) => {
   const getFocusedIndexHandler = (rowIndex, columnIndex) => {
 		setFocusedIndex({ rowIndex, columnIndex })
 	}
-  console.log("checkedCells", checkedCells)
+	
   const indexOfArray = (val, array) => {
 		const hash = {};
 		for (let i = 0; i < array.length; i++) {
