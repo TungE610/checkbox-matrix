@@ -1,8 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# CheckBox-Matrix Component
 
 In the project directory, you can run:
 
@@ -14,57 +10,34 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## How to use this component in your project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Passing data into the component
 
-### `npm run build`
+<img width="537" alt="Screen Shot 2022-09-20 at 17 08 25" src="https://user-images.githubusercontent.com/81414026/191230753-a3f21875-eae9-4d68-b6e2-b55c60a67d94.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Passing two list's data into data prop.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The first list will be the first row of the matrix and the second list will be the first column of the matrix
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="697" alt="Screen Shot 2022-09-20 at 17 05 57" src="https://user-images.githubusercontent.com/81414026/191230191-3972dec0-9a0c-4919-8f51-d37cb1814d34.png">
 
-### `npm run eject`
+#### Passing a list of checked cells's index you want to initialize into checkedCells prop.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Each element in this list is an array with 2 elements, the first element is row's index of a checked cell and the second one is column's index
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="427" alt="Screen Shot 2022-09-20 at 17 08 11" src="https://user-images.githubusercontent.com/81414026/191230680-c0c3a7f1-dd47-441e-ade1-e14bcd59d238.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Get the list of checked cells
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### The list of checked cells will be returned in checkedCells state in CheckboxMatrix component
 
-## Learn More
+## Demo 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://user-images.githubusercontent.com/81414026/191231044-cd553e2a-e15e-4397-807c-cce0dd38e6b7.mov
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
